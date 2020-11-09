@@ -16,21 +16,24 @@ float RNG()
 
 void meet(Person &A, Person &B)
 {
+    float roll = RNG();
     if (A.infected() && !B.infected())
     {
-        if (RNG() < B.chanceToInfect())
-        {
-            B.infect();
-        }
+
+        if (roll < B.chanceToInfect()) { B.infect(); }
+        if (roll < A.chanceToRecover()) { A.recover(); }
+
     }
 
     if (!A.infected() && B.infected())
     {
-        if (RNG() < A.chanceToInfect())
-        {
-            A.infect();
-        }
+        if (roll < A.chanceToInfect()) { A.infect(); }
+        if (roll < B.chanceToRecover()) { B.recover(); }
+
     }
+
+    if (A.infected() && B.infected()) {}
 
 
 }
+

@@ -43,7 +43,13 @@ void printm(double matrix[3][3], int size)
         cout << endl;
         for (int j = 0; j < size; ++j)
         {
-            cout << std::setprecision(1) << matrix[i][j] << std::fixed << " ";
+            // Nicer formatting for non-negative numbers
+            if (matrix[i][j] >= 0.0)
+            {
+                cout << setprecision(1) << " " << matrix[i][j] << fixed << " ";
+                continue;
+            }
+            cout << setprecision(1) << matrix[i][j] << fixed << " ";
         }
     }
 }

@@ -9,21 +9,23 @@
 #include <iostream>
 #include <cstdio>
 
+using namespace std;
+
 class Circle
 {
 private:
-    static const float DEFAULT = 0.0;
-    static const double PI = 3.14159265;
+    static const float DEFAULT;
+    static const double PI;
     float radius;
     float xpos;
     float ypos;
 public:
     // Constructors
-    Circle( float r, float x, float y ) {radius = r; xpos = x; ypos = y;}
-    explicit Circle( float r ) {radius = r; xpos = DEFAULT, ypos = DEFAULT;}
-    Circle() {radius = DEFAULT; xpos = DEFAULT; ypos = DEFAULT;}
+    Circle( float r, float x, float y ) { radius = r; xpos = x; ypos = y; }
+    explicit Circle( float r ) { radius = r; xpos = DEFAULT, ypos = DEFAULT; }
+    Circle() { radius = DEFAULT; xpos = DEFAULT; ypos = DEFAULT; }
     // Copy Constructor
-    Circle( const Circle& c) {radius = c.radius; xpos = c.xpos; ypos = c.ypos;}
+    Circle( const Circle& c ) { radius = c.radius; xpos = c.xpos; ypos = c.ypos; }
 
     // Functions
     float getRadius(){ return radius; };
@@ -39,18 +41,23 @@ public:
         float newY = (c.getY() + this->getY()) / 2;
         return Circle (newRadius, newX, newY);
     }
-    friend std::ostream& operator<<(std::ostream& os, Circle c)
+    friend ostream& operator<<(ostream& os, Circle c)
     {
-        std::cout << "Radius = " << c.getRadius() << " at (x, y) = (" << c.getX() << ", " << c.getY() << ")" << std::endl;
+        cout << "Radius = " << c.getRadius() << " at (x, y) = (" << c.getX() << ", " << c.getY() << ")" << endl;
     }
     bool operator>(Circle c)
     {
         return this->getRadius() > c.getRadius();
     }
 
-
+    virtual ~Circle();
 
 };
+
+const float Circle::DEFAULT = 0.0;
+const double Circle::PI = 0.0;
+
+Circle::~Circle() {}
 
 
 #endif //UNI_C___CIRCLE_H

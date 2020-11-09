@@ -30,7 +30,10 @@ public:
     void infect() { isInfected = true; becomeInfected = 0.0; dying = 0.01; recovering = 0.12; }
     void recover() { isInfected = false; becomeInfected = 0.0; dying = 0.0; recovering = 0.0; }
     bool infected() { return isInfected; }
+    bool recovered() { return hasRecovered; }
     float chanceToInfect() { return becomeInfected; }
+    float chanceToRecover() { return recovering; }
+    float changeToDie() { return dying; }
 
 };
 
