@@ -28,10 +28,10 @@ public:
     Circle( const Circle& c ) { radius = c.radius; xpos = c.xpos; ypos = c.ypos; }
 
     // Functions
-    float getRadius(){ return radius; };
-    float getX(){ return xpos; };
-    float getY(){ return ypos; };
-    double getArea(){ return PI * (radius * radius); };
+    float getRadius(){ return radius; }
+    float getX(){ return xpos; }
+    float getY(){ return ypos; }
+    double getArea(){ return PI * (radius * radius); }
     Circle operator+(Circle& c)
     {
         float cRadius = c.getRadius();
