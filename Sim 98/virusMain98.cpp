@@ -1,15 +1,19 @@
 //
+// Created by Luke on 21/11/2020.
+//
+
+//
 // Created by Luke on 18/11/2020.
 //
 
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <random>
 #include <utility>
+#include <cstdlib>
 
-#include "Person.hpp"
-#include "virusFunctions.hpp"
+#include "person98.hpp"
+#include "virusFunctions98.hpp"
 
 using namespace std;
 
@@ -17,19 +21,17 @@ int main()
 {
     // Setting up random number generator
     cout << "Simulation Running..." << endl;
-    random_device rd;
-    mt19937 gen(rd());
+    srand(time(NULL));
     ofstream fileOut;
 
     int vulnerable = 19900;
     int infected = 100;
     int totalPopulation = vulnerable + infected;
-    uniform_int_distribution<> dis(0, totalPopulation);
     // Create the population
-    vector<Person> population = createPopulation(vulnerable, infected);
+    vector<person98> population = createPopulation(vulnerable, infected);
 
     // Initialise output file
-    fileOut.open(R"(E:\Sussex Code\Python\CPP Coursework\Week 9\virus_sim.csv)");
+    fileOut.open("E:\\Sussex Code\\Python\\CPP Coursework\\Week 9\\virus_sim.txt");
     fileOut << "vulnerable,infected,immune,dead" << endl;
     fileOut << vulnerable << "," << infected << "," << 0 << "," << 0 << endl;
 
@@ -40,8 +42,8 @@ int main()
         for (int meet = 0; meet < 50000; ++meet)
             {
             // Meet x times per day
-            int ind1 = dis(gen);
-            int ind2 = dis(gen);
+            int ind1 = choose(totalPopulation);
+            int ind2 = choose(totalPopulation);
             pair<int, int> pairMeet = selectRandomPair(population, totalPopulation);
             meeting(population[pairMeet.first], population[pairMeet.second]);
             }

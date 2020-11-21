@@ -1,11 +1,11 @@
 //
-// Created by Luke on 18/11/2020.
+// Created by Luke on 21/11/2020.
 //
 
-#ifndef UNI_C___PERSON_HPP
-#define UNI_C___PERSON_HPP
+#ifndef UNI_CPP_PERSON98_HPP
+#define UNI_CPP_PERSON98_HPP
 
-class Person
+class person98
 {
 private:
     // 0, 1, 2, 3  <=> vulnerable, infected, immune, dead
@@ -19,7 +19,7 @@ private:
     float recovering;
 public:
     // Default constructor - vulnerable person
-    Person()
+    person98()
     {
         state = VULNERABLE;
         becomeInfected = 0.5;
@@ -28,7 +28,7 @@ public:
     }
 
     // Infected person constructor
-    explicit Person(bool infected)
+    explicit person98(bool infected)
     {
         state = INFECTED;
         becomeInfected = 0.0;
@@ -37,7 +37,7 @@ public:
     }
 
     // Destructor
-    virtual ~Person() = default;
+    virtual ~person98();
 
     // Functions
     void infect();
@@ -60,4 +60,4 @@ public:
 
 };
 
-#endif //UNI_C___PERSON_HPP
+#endif //UNI_CPP_PERSON98_HPP

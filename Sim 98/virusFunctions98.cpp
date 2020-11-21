@@ -1,75 +1,75 @@
 //
-// Created by Luke on 18/11/2020.
+// Created by Luke on 21/11/2020.
 //
 
+
 #include <iostream>
+#include <cstdlib>
 #include <vector>
 #include <algorithm>
-#include <random>
 #include <utility>
+#include <cmath>
 
-#include "virusFunctions.hpp"
+#include "virusFunctions98.hpp"
 
 using namespace std;
 
-random_device rd;
-
-mt19937 gen(rd());
-
-uniform_real_distribution<> dis(0, 1);
-
 float RNG()
 {
-    return dis(gen);
+    return static_cast<float>(rand()) / RAND_MAX ;
 }
 
-vector<Person> createPopulation(int &vulnerable, int &infected)
+vector<person98> createPopulation(int &vulnerable, int &infected)
 {
-    vector<Person> population(vulnerable, Person());
+    vector<person98> population(vulnerable, person98());
     for (int person = 0; person < infected; ++person)
         {
-        population.emplace_back(Person(true));
+        population.push_back(person98(true));
         }
     random_shuffle(population.begin(), population.end());
     return population;
 }
 
-void daycheck(vector<Person> &population)
+void daycheck(vector<person98> &population)
 {
-    for (auto &person : population)
+    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person)
         {
-        if (person.infected())
+        if (person->infected())
             {
             float roll = RNG();
-            if (roll <= person.chanceToDie())
+            if (roll <= person->chanceToDie())
                 {
-                person.die();
+                person->die();
                 continue;
                 }
-            else if (roll <= person.chanceToRecover())
+            else if (roll <= person->chanceToRecover())
                 {
-                person.recover();
+                person->recover();
                 continue;
                 }
             }
         }
 }
 
-pair<int, int> selectRandomPair(vector<Person> &population, int &popSize)
+int choose(int &popSize)
 {
-    uniform_real_distribution<> select(0, popSize);
-    int index1 = select(gen);
-    int index2 = select(gen);
+    return roundf(RNG() * popSize);
+}
+
+pair<int, int> selectRandomPair(vector<person98> &population, int &popSize)
+{
+    int index1 = choose(popSize);
+    int index2 = choose(popSize);
     // If person is dead
     while (!population[index1].isAlive())
-        { index1 = select(gen); }
+        { index1 = choose(popSize); }
     while (!population[index2].isAlive() && index2 == index1)
-        { index2 = select(gen); }
-    return pair<int, int>{index1, index2};
+        { index2 = choose(popSize); }
+    return pair<int, int>(index1, index2);
 
 }
 
-void meeting(Person &A, Person &B)
+void meeting(person98 &A, person98 &B)
 {
     float roll = RNG();
     if (A.infected() && !B.infected())
@@ -84,7 +84,7 @@ void meeting(Person &A, Person &B)
         }
 }
 
-vector<int> populationReport(vector<Person> &population, int &popSize)
+vector<int> populationReport(vector<person98> &population, int &popSize)
 {
     enum status
     {
@@ -92,9 +92,9 @@ vector<int> populationReport(vector<Person> &population, int &popSize)
     };
     vector<int> report(4, 0);
     // vulnerable, infected, immune, dead
-    for (auto &person : population)
+    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person)
         {
-        switch (person.getState())
+        switch (person->getState())
             {
         case VULNERABLE: report[0]++;
             break;
@@ -108,4 +108,3 @@ vector<int> populationReport(vector<Person> &population, int &popSize)
         }
     return report;
 }
-
