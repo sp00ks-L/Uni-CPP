@@ -5,12 +5,8 @@
 #include <iostream>
 #include <iomanip>
 
-#include "matrixTranspose.h"
-
-using namespace std;
-
-
-void swapr(double &x, double &y) {
+void swapr(double &x, double &y)
+{
     double &tmp = x;
     x = y;
     y = tmp;
@@ -40,16 +36,16 @@ void printm(double matrix[3][3], int size)
 {
     for (int i = 0; i < size; ++i)
     {
-        cout << endl;
+        std::cout << std::endl;
         for (int j = 0; j < size; ++j)
         {
             // Nicer formatting for non-negative numbers
             if (matrix[i][j] >= 0.0)
             {
-                cout << setprecision(1) << " " << matrix[i][j] << fixed << " ";
+                std::cout << std::setprecision(1) << " " << matrix[i][j] << std::fixed << " ";
                 continue;
             }
-            cout << setprecision(1) << matrix[i][j] << fixed << " ";
+            std::cout << std::setprecision(1) << matrix[i][j] << std::fixed << " ";
         }
     }
 }

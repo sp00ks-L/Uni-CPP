@@ -2,7 +2,7 @@
 // Created by Luke on 21/11/2020.
 //
 
-#include "Person.hpp"
+#include "person.hpp"
 
 void Person::infect()
 {

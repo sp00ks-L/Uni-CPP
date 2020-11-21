@@ -4,27 +4,22 @@
 
 #include <iostream>
 
-#include "matrixTranspose.h"
-
-using namespace std;
+#include "matrixTranspose.hpp"
 
 int main()
 {
 
     double matrix[3][3] =
-    {
-            { 0.36, 0.48, -0.8 },
-            { -0.8, 0.6, 0.0 },
-            { 0.48, 0.64, 0.6 }
-    };
+            {
+                    {0.36, 0.48, -0.8},
+                    {-0.8, 0.6, 0.0},
+                    {0.48, 0.64, 0.6}
+            };
 
     printm(matrix);
-    cout << endl;
+    std::cout << std::endl;
     transpose(matrix);
     printm(matrix);
-
-
-
 
     return 0;
 }

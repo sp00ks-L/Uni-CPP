@@ -2,8 +2,8 @@
 // Created by Luke on 18/11/2020.
 //
 
-#ifndef UNI_C___PERSON_HPP
-#define UNI_C___PERSON_HPP
+#ifndef UNI_CPP_PERSON_HPP
+#define UNI_CPP_PERSON_HPP
 
 class Person
 {
