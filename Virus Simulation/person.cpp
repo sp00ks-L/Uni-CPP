@@ -9,7 +9,7 @@ void Person::infect()
     state = INFECTED;
     becomeInfected = 0.0;
     dying = 0.01;
-    recovering = 0.12;
+    recovering = 0.06;
 }
 
 void Person::recover()
