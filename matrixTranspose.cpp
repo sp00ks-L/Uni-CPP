@@ -5,14 +5,15 @@
 #include <iostream>
 #include <iomanip>
 
-void swapr(double &x, double &y)
+template<class T>
+void swapr(T &x, T &y)
 {
-    double &tmp = x;
+    T &tmp = x;
     x = y;
     y = tmp;
 }
 
-void transpose(double matrix[3][3], int size)
+void transpose(double matrix[][3], int size)
 {
     double output[3][3];
     for (int i = 0; i < size; ++i)
@@ -32,7 +33,7 @@ void transpose(double matrix[3][3], int size)
     }
 }
 
-void printm(double matrix[3][3], int size)
+void printm(double matrix[][3], int size)
 {
     for (int i = 0; i < size; ++i)
     {

@@ -18,7 +18,7 @@ int main()
     cout << B << endl;
     cout << C << endl;
     bool equal = !(A > B) && !(B > A);
-    // Using my copy constructor so therefore they must be equal
+    // Using copy constructor
     Circle D(A);
     bool equal2 = !(A > D) && !(D > A);
     cout << equal << endl;

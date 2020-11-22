@@ -24,7 +24,7 @@ int main()
     std::ofstream fileOut;
 
     int vulnerable = 199900;
-    int infected = 1000;
+    int infected = 100;
     int totalPopulation = vulnerable + infected;
     vector<int> report(4, 0);
     std::uniform_int_distribution<> dis(0, totalPopulation);
