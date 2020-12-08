@@ -81,10 +81,6 @@ void meeting(Person &A, Person &B)
 
 void populationReport(vector<Person> &population, vector<int> &report, int &popSize)
 {
-    enum status
-    {
-        VULNERABLE, INFECTED, IMMUNE, DEAD
-    };
     // Effectively clears the vector for re-counting
     report.assign(4, 0);
     for (auto &person : population)

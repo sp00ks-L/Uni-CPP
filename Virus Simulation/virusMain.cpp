@@ -8,7 +8,6 @@
 #include <random>
 #include <utility>
 
-#include "person.hpp"
 #include "virusFunctions.hpp"
 
 using std::cout;
@@ -41,8 +40,6 @@ int main()
         daycheck(population);
         for (int meet = 0; meet < 50000; ++meet)
         {
-            int ind1 = dis(gen);
-            int ind2 = dis(gen);
             std::pair<int, int> pairMeet = selectRandomPair(population, totalPopulation);
             meeting(population[pairMeet.first], population[pairMeet.second]);
         }

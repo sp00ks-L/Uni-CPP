@@ -23,5 +23,6 @@ int main()
     bool equal2 = !(A > D) && !(D > A);
     cout << equal << endl;
     cout << equal2 << endl;
+
     return 0;
 }

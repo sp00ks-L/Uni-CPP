@@ -11,30 +11,19 @@
 
 #include "person.hpp"
 
-
-/*
- * Returns a random float in the interval [0, 1]
- */
+// Returns a random float in the interval [0, 1]
 float RNG();
 
-/*
- * Allows dynamic creation of the simulated population as a vector
- */
+// Allows dynamic creation of the simulated population as a vector
 std::vector<Person> createPopulation(int &healthy, int &infected);
 
-/*
- * Completes the daily check to see if an infected person dies or survives
- */
+// Completes the daily check to see if an infected person dies or survives
 void daycheck(std::vector<Person> &population);
 
-/*
- * Selects a suitable pair randomly by index and ensures they are alive and unique
- */
+// Selects a suitable pair randomly by index and ensures they are alive and unique
 std::pair<int, int> selectRandomPair(std::vector<Person> &population, int &popSize);
 
-/*
- * Performs the meeting between the 2 people selected using the 'selectRandomPair' function
- */
+// Performs the meeting between the 2 people selected using the 'selectRandomPair' function
 void meeting(Person &A, Person &B);
 
 /*

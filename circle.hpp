@@ -9,6 +9,9 @@
 #include <iostream>
 #include <cstdio>
 
+const double PI = 3.14159265;
+const float DEFAULT = 0.0;
+
 using std::cout;
 using std::endl;
 using std::ostream;
@@ -16,8 +19,6 @@ using std::ostream;
 class Circle
 {
 private:
-    static const float DEFAULT;
-    static const double PI;
     float radius;
     float xpos;
     float ypos;
@@ -32,7 +33,8 @@ public:
     explicit Circle(float r)
     {
         radius = r;
-        xpos = DEFAULT, ypos = DEFAULT;
+        xpos = DEFAULT;
+        ypos = DEFAULT;
     }
     Circle()
     {
@@ -49,35 +51,42 @@ public:
     }
 
     // Destructor
-    virtual ~Circle();
+    virtual ~Circle()
+    {
+
+    }
 
     // Functions
-    float getRadius() { return radius; }
-    float getX() { return xpos; }
-    float getY() { return ypos; }
-    double getArea() { return PI * (radius * radius); }
-    Circle operator+(Circle &c)
-    {
-        float cRadius = c.getRadius();
-        float myRadius = this->getRadius();
-        float newRadius = sqrtf((cRadius * cRadius) + (myRadius * myRadius));
-        float newX = (c.getX() + this->getX()) / 2;
-        float newY = (c.getY() + this->getY()) / 2;
-        return Circle(newRadius, newX, newY);
-    }
-    friend ostream &operator<<(ostream &os, Circle c)
-    {
-        cout << "Radius = " << c.getRadius() << " at (x, y) = (" << c.getX() << ", " << c.getY() << ")" << endl;
-    }
-    bool operator>(Circle c)
-    {
-        return this->getRadius() > c.getRadius();
-    }
-
+    float getRadius();
+    float getX();
+    float getY();
+    double getArea();
+    Circle operator+(Circle &c);
+    friend ostream &operator<<(ostream &os, Circle c);
+    bool operator>(Circle c);
 };
 
-const float Circle::DEFAULT = 0.0;
-const double Circle::PI = 0.0;
-Circle::~Circle() = default;
+// Function definitions
+float Circle::getRadius() { return radius; }
+float Circle::getX() { return xpos; }
+float Circle::getY() { return ypos; }
+double Circle::getArea() { return PI * (radius * radius); }
+Circle Circle::operator+(Circle &c)
+{
+    float cRadius = c.getRadius();
+    float myRadius = this->getRadius();
+    float newRadius = sqrtf((cRadius * cRadius) + (myRadius * myRadius));
+    float newX = (c.getX() + this->getX()) / 2;
+    float newY = (c.getY() + this->getY()) / 2;
+    return Circle(newRadius, newX, newY);
+}
+ostream &operator<<(ostream &os, Circle c)
+{
+    cout << "Radius = " << c.getRadius() << " at (x, y) = (" << c.getX() << ", " << c.getY() << ")" << endl;
+}
+bool Circle::operator>(Circle c)
+{
+    return this->getRadius() > c.getRadius();
+}
 
 #endif //UNI_CPP_CIRCLE_H

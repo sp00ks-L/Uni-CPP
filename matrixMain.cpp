@@ -18,7 +18,7 @@ int main()
 
     printm(matrix);
     std::cout << std::endl;
-    transpose(matrix);
+    squareTranspose(matrix);
     printm(matrix);
 
     return 0;

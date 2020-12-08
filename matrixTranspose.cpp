@@ -8,7 +8,7 @@
 template<class T>
 void swapr(T &x, T &y)
 {
-    T &tmp = x;
+    T tmp = x;
     x = y;
     y = tmp;
 }
@@ -33,6 +33,17 @@ void transpose(double matrix[][3], int size)
     }
 }
 
+void squareTranspose(double matrix[][3], int size)
+{
+    for (int a = 1; a < size; a++)
+    {
+        for (int b = 0; b < a; b++)
+        {
+            swapr(matrix[a][b], matrix[b][a]);
+        }
+    }
+}
+
 void printm(double matrix[][3], int size)
 {
     for (int i = 0; i < size; ++i)
@@ -43,10 +54,10 @@ void printm(double matrix[][3], int size)
             // Nicer formatting for non-negative numbers
             if (matrix[i][j] >= 0.0)
             {
-                std::cout << std::setprecision(1) << " " << matrix[i][j] << std::fixed << " ";
+                std::cout << std::setprecision(2) << " " << matrix[i][j] << std::fixed << " ";
                 continue;
             }
-            std::cout << std::setprecision(1) << matrix[i][j] << std::fixed << " ";
+            std::cout << std::setprecision(2) << matrix[i][j] << std::fixed << " ";
         }
     }
 }

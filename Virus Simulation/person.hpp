@@ -5,14 +5,12 @@
 #ifndef UNI_CPP_PERSON_HPP
 #define UNI_CPP_PERSON_HPP
 
+#include "status.hpp"
+
 class Person
 {
 private:
     // 0, 1, 2, 3  <=> vulnerable, infected, immune, dead
-    enum status
-    {
-        VULNERABLE, INFECTED, IMMUNE, DEAD
-    };
     int state;
     float becomeInfected;
     float dying;

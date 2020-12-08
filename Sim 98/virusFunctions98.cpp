@@ -81,10 +81,6 @@ void meeting(person98 &A, person98 &B)
 
 void populationReport(vector<person98> &population, vector<int> &report, int &popSize)
 {
-    enum status
-    {
-        VULNERABLE, INFECTED, IMMUNE, DEAD
-    };
     report.assign(4, 0);
     for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person)
     {
