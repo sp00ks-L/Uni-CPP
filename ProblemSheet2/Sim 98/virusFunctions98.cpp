@@ -21,8 +21,7 @@ float RNG()
 vector<person98> createPopulation(int &vulnerable, int &infected)
 {
     vector<person98> population(vulnerable, person98());
-    for (int person = 0; person < infected; ++person)
-    {
+    for (int person = 0; person < infected; ++person) {
         population.push_back(person98(true));
     }
     random_shuffle(population.begin(), population.end());
@@ -31,18 +30,13 @@ vector<person98> createPopulation(int &vulnerable, int &infected)
 
 void daycheck(vector<person98> &population)
 {
-    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person)
-    {
-        if (person->infected())
-        {
+    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person) {
+        if (person->infected()) {
             float roll = RNG();
-            if (roll <= person->chanceToDie())
-            {
+            if (roll <= person->chanceToDie()) {
                 person->die();
                 continue;
-            }
-            else if (roll <= person->chanceToRecover())
-            {
+            } else if (roll <= person->chanceToRecover()) {
                 person->recover();
                 continue;
             }
@@ -69,12 +63,9 @@ pair<int, int> selectRandomPair(vector<person98> &population, int &popSize)
 void meeting(person98 &A, person98 &B)
 {
     float roll = RNG();
-    if (A.infected() && !B.infected())
-    {
+    if (A.infected() && !B.infected()) {
         if (roll <= B.chanceToInfect()) { B.infect(); }
-    }
-    else if (!A.infected() && B.infected())
-    {
+    } else if (!A.infected() && B.infected()) {
         if (roll <= A.chanceToInfect()) { A.infect(); }
     }
 }
@@ -82,18 +73,20 @@ void meeting(person98 &A, person98 &B)
 void populationReport(vector<person98> &population, vector<int> &report, int &popSize)
 {
     report.assign(4, 0);
-    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person)
-    {
-        switch (person->getState())
-        {
-        case VULNERABLE: report[0]++;
-            break;
-        case INFECTED: report[1]++;
-            break;
-        case IMMUNE: report[2]++;
-            break;
-        case DEAD: report[3]++;
-            break;
+    for (vector<person98>::iterator person = population.begin(); person != population.end(); ++person) {
+        switch (person->getState()) {
+            case VULNERABLE:
+                report[0]++;
+                break;
+            case INFECTED:
+                report[1]++;
+                break;
+            case IMMUNE:
+                report[2]++;
+                break;
+            case DEAD:
+                report[3]++;
+                break;
         }
     }
 }
