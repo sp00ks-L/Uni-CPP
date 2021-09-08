@@ -2,14 +2,12 @@
 // Created by Luke on 18/11/2020.
 //
 
-
-#ifndef UNI_CPP_VIRUSFUNCTIONS_HPP
-#define UNI_CPP_VIRUSFUNCTIONS_HPP
+#ifndef VIRUSFUNCTIONS_HPP
+#define VIRUSFUNCTIONS_HPP
 
 #include <iterator>
 #include <vector>
-
-#include "person.hpp"
+#include "Person.hpp"
 
 // Returns a random float in the interval [0, 1]
 float RNG();
@@ -32,4 +30,4 @@ void meeting(Person &A, Person &B);
  */
 void populationReport(std::vector<Person> &population, std::vector<int> &report, int &popSize);
 
-#endif //UNI_CPP_VIRUSFUNCTIONS_HPP
+#endif //VIRUSFUNCTIONS_HPP

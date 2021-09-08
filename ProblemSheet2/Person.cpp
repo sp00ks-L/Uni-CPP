@@ -1,8 +1,8 @@
 //
-// Created by Luke on 21/11/2020.
+// Created by Luke on 21/11/20
 //
 
-#include "person.hpp"
+#include "include/Person.hpp"
 
 void Person::infect()
 {

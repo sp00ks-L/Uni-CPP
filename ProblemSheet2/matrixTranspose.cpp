@@ -1,5 +1,6 @@
 //
 // Created by Luke on 02/11/2020.
+// Matrix Transpose Functions
 //
 
 #include <iostream>
@@ -13,26 +14,12 @@ void swapr(T &x, T &y)
     y = tmp;
 }
 
-void transpose(double matrix[][3], int size)
-{
-    double output[3][3];
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            output[i][j] = matrix[i][j];
-        }
-    }
-
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            swapr(matrix[i][j], output[j][i]);
-        }
-    }
-}
-
 void squareTranspose(double matrix[][3], int size)
 {
-    for (int a = 1; a < size; a++) {
-        for (int b = 0; b < a; b++) {
+    for (int a = 1; a < size; a++)
+    {
+        for (int b = 0; b < a; b++)
+        {
             swapr(matrix[a][b], matrix[b][a]);
         }
     }
@@ -40,11 +27,14 @@ void squareTranspose(double matrix[][3], int size)
 
 void printm(double matrix[][3], int size)
 {
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         std::cout << std::endl;
-        for (int j = 0; j < size; ++j) {
+        for (int j = 0; j < size; ++j)
+        {
             // Nicer formatting for non-negative numbers
-            if (matrix[i][j] >= 0.0) {
+            if (matrix[i][j] >= 0.0)
+            {
                 std::cout << std::setprecision(2) << " " << matrix[i][j] << std::fixed << " ";
                 continue;
             }

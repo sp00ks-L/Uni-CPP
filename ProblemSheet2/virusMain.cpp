@@ -2,13 +2,15 @@
 // Created by Luke on 18/11/2020.
 //
 
+
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <random>
 #include <utility>
 
-#include "virusFunctions.hpp"
+#include "include/Person.hpp"
+#include "include/virusFunctions.hpp"
 
 using std::cout;
 using std::endl;
@@ -31,7 +33,7 @@ int main()
     vector<Person> population = createPopulation(vulnerable, infected);
 
     // Initialise output file
-    fileOut.open(R"(E:\Sussex Code\Python\CPP Coursework\Week 9\virus_sim.csv)");
+    fileOut.open("output/virus_sim.csv");
     fileOut << "vulnerable,infected,immune,dead" << endl;
     fileOut << vulnerable << "," << infected << "," << 0 << "," << 0 << endl;
 
@@ -48,6 +50,6 @@ int main()
 
     }
     fileOut.close();
-    cout << "Simulation Completed" << endl;
+    cout << "Simulation Completed. File written to output/virus_sim.csv" << endl;
     return 0;
 }

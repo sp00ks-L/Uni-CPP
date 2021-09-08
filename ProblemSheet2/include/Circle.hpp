@@ -1,9 +1,10 @@
 //
-// Created by Luke on 02/11/2020.
+// Created by Luke Jones on 02/11/2020
+// Circle Class Header
 //
 
-#ifndef UNI_CPP_CIRCLE_H
-#define UNI_CPP_CIRCLE_H
+#ifndef CIRCLE__HPP
+#define CIRCLE_HPP
 
 #include <cmath>
 #include <iostream>
@@ -89,4 +90,4 @@ bool Circle::operator>(Circle c)
     return this->getRadius() > c.getRadius();
 }
 
-#endif //UNI_CPP_CIRCLE_H
+#endif //CIRCLE_HPP

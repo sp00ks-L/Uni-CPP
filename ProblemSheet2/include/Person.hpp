@@ -2,8 +2,8 @@
 // Created by Luke on 18/11/2020.
 //
 
-#ifndef UNI_CPP_PERSON_HPP
-#define UNI_CPP_PERSON_HPP
+#ifndef PERSON_HPP
+#define PERSON_HPP
 
 #include "status.hpp"
 
@@ -58,4 +58,4 @@ public:
 
 };
 
-#endif //UNI_C___PERSON_HPP
+#endif //PERSON_HPP
