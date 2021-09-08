@@ -2,3 +2,4 @@
 .exe
 .txt
 CMakeLists.txt
+*.txt
