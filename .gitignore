@@ -1,5 +1,3 @@
-.cmake
-.exe
-.txt
-CMakeLists.txt
+*.cmake
+*.exe
 *.txt
