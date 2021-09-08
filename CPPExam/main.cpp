@@ -24,7 +24,8 @@ int main()
 
 
     // Initialise output file
-    fileOut.open("output/mandelbrot.txt");
+//    fileOut.open("output/mandelbrot.txt");
+    fileOut.open(R"(C:\Users\Luke\Sussex Python\CPP Coursework\mandelbrot.txt)");
 
     // Altering the order of this loop changes the orientation
     // Put Y first for horizontal fractal. X first for vertical
